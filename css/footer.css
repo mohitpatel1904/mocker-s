@@ -167,4 +167,47 @@
         gap: 16px;
         text-align: center;
     }
+
+    .footer-brand-title {
+        font-size: clamp(60px, 15vw, 200px);
+        margin-top: 30px;
+    }
+
+    .big-footer {
+        padding: 40px 5% 20px;
+    }
+
+    .footer-newsletter {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-newsletter-form {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer-newsletter-input {
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .footer-brand-title {
+        font-size: clamp(48px, 14vw, 120px);
+    }
+
+    .footer-col h4 {
+        font-size: 12px;
+        margin-bottom: 16px;
+    }
+
+    .footer-col a {
+        font-size: 13px;
+    }
+
+    .footer-social {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
 }
