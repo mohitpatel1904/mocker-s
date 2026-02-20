@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKERS | Article</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Inter:wght@400;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/hero-glitch.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        .nav-container {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Teko', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #FFF;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #FFF;
+        }
+
+        .nav-cart {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 24px;
+            color: #FFF;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .article-header {
+            padding: 140px 5% 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(180deg, var(--color-charcoal), var(--color-black));
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .article-header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 140px 5% 60px;
+        }
+
+        .article-category {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--color-electric-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .article-title {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(48px, 6vw, 80px);
+            margin: 0;
+            color: #FFF;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        .article-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--color-silver);
+            margin-top: 24px;
+            display: flex;
+            gap: 24px;
+        }
+
+        .article-body {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 80px 5%;
+        }
+
+        .article-body p {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+
+        .article-body h2 {
+            font-family: 'Teko', sans-serif;
+            font-size: 36px;
+            color: #FFF;
+            text-transform: uppercase;
+            margin: 48px 0 16px;
+        }
+
+        .article-body blockquote {
+            border-left: 3px solid var(--color-neon-green);
+            padding-left: 24px;
+            margin: 40px 0;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .article-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--color-silver);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .article-back:hover {
+            color: var(--color-neon-green);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <a href="index.html" class="logo">MOCKERS 🍹</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="collections.html" class="nav-link">Collections</a>
+            <a href="blog.html" class="nav-link">Journal</a>
+        </div>
+        <button class="nav-cart">CART (0)</button>
+    </nav>
+
+    <div class="article-body">
+        <a href="blog.html" class="article-back">&larr; Back to Journal</a>
+
+        <span class="article-category" id="artCategory">Research</span>
+        <h1 class="article-title" id="artTitle">THE SCIENCE OF FLAVOR BALANCE</h1>
+        <div class="article-meta">
+            <span id="artDate">FEB 2026</span>
+            <span>5 MIN READ</span>
+        </div>
+
+        <div style="margin-top: 60px;" id="artContent">
+            <p>
+                Every MOCKERS drink begins with a fundamental question: how do you create a beverage
+                that rivals the complexity of a premium cocktail — without any alcohol? The answer
+                lies in understanding flavor science at a molecular level.
+            </p>
+
+            <h2>The Sweet-Sour-Bitter Triangle</h2>
+            <p>
+                Alcohol acts as a flavor carrier and palate lubricant. Without it, we need to engineer
+                alternative pathways for flavor perception. Our approach uses the sweet-sour-bitter
+                triangle — each element precisely calibrated to create depth and complexity.
+            </p>
+
+            <blockquote>
+                "When you remove alcohol from the equation, you're forced to understand taste
+                at a deeper level. Every ingredient has to earn its place." — MOCKERS Lab
+            </blockquote>
+
+            <h2>Ingredient Synergy</h2>
+            <p>
+                Take our Abyssal Crush: the watermelon provides natural sweetness and a
+                refreshing base. Mint adds aromatic brightness. Lime brings acidity that
+                creates tension on the palate. And the sparkling water adds textural
+                complexity through carbonation.
+            </p>
+
+            <p>
+                Each ingredient doesn't just add a flavor — it interacts with every other
+                ingredient. This is what separates a carefully crafted mocktail from
+                simply mixing juice with soda water.
+            </p>
+
+            <h2>The 47-Iteration Process</h2>
+            <p>
+                Every MOCKERS drink goes through an average of 47 iterations before it
+                reaches your glass. We test ratios, temperatures, preparation methods,
+                and garnish combinations. The goal isn't just "good enough" — it's a
+                drink that makes you forget alcohol was ever part of the conversation.
+            </p>
+        </div>
+    </div>
+
+    <footer class="big-footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h4>// NAVIGATION</h4><a href="index.html">Home</a><a href="index.html#products">Menu</a><a
+                    href="blog.html">Journal</a>
+            </div>
+            <div class="footer-col">
+                <h4>// SOCIAL</h4><a href="#">Instagram</a><a href="#">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-brand-title">MOCKERS</div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MOCKERS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get('slug');
+
+        const articles = {
+            'science-of-flavor': {
+                category: 'Research', title: 'THE SCIENCE OF FLAVOR BALANCE', date: 'FEB 2026',
+            },
+            'mocktail-revolution': {
+                category: 'Culture', title: 'THE MOCKTAIL REVOLUTION', date: 'JAN 2026',
+                content: `
+                    <p>Something is shifting in drinking culture. Across India and globally, a growing number of people — especially Gen Z — are choosing sophisticated non-alcoholic alternatives over traditional cocktails.</p>
+                    <h2>The Numbers Don't Lie</h2>
+                    <p>The global non-alcoholic beverage market is projected to reach $1.6 trillion by 2025. In India, the mocktail segment is growing at 15% year-over-year, driven by health-conscious consumers and a vibrant social scene that doesn't revolve around alcohol.</p>
+                    <blockquote>"It's not about giving something up. It's about choosing something better." — MOCKERS Manifesto</blockquote>
+                    <h2>Why MOCKERS Exists</h2>
+                    <p>We saw a gap: the market was full of sugary, overly sweet "virgin" drinks that felt like an afterthought. MOCKERS was created to fill that gap with drinks that are designed from the ground up to be alcohol-free AND exceptional.</p>
+                `
+            },
+            'behind-abyssal-crush': {
+                category: 'Behind The Mix', title: 'CREATING ABYSSAL CRUSH', date: 'FEB 2026',
+                content: `
+                    <p>Our signature Deep Watermelon & Mint blend didn't happen overnight. Here's the story of 47 iterations, 3 abandoned concepts, and one breakthrough moment.</p>
+                    <h2>The Starting Point</h2>
+                    <p>Version 1.0 was simple: watermelon juice + mint + ice. It tasted fine. But "fine" isn't why MOCKERS exists. We needed something that would stop people mid-sip.</p>
+                    <h2>The Breakthrough</h2>
+                    <p>On iteration 31, we discovered that lightly grilling the watermelon before juicing added a caramelized depth that transformed the entire drink. Combined with a cold brew mint infusion (not muddled, infused overnight), the flavor profile went from "refreshing" to "unforgettable."</p>
+                    <blockquote>"That first sip of version 31 — everyone in the room went silent. We knew we had something." — Head Mixologist</blockquote>
+                `
+            }
+        };
+
+        if (slug && articles[slug]) {
+            const a = articles[slug];
+            document.getElementById('artCategory').textContent = a.category;
+            document.getElementById('artTitle').textContent = a.title;
+            document.getElementById('artDate').textContent = a.date;
+            document.title = `MOCKERS | ${a.title}`;
+            if (a.content) document.getElementById('artContent').innerHTML = a.content;
+        }
+    </script>
+
+</body>
+
+</html>

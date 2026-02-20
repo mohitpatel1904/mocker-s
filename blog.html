@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKERS | Transmission Log</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Inter:wght@400;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/hero-glitch.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        .nav-container {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Teko', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #FFF;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #FFF;
+        }
+
+        .nav-link.active {
+            color: var(--color-neon-green);
+        }
+
+        .nav-cart {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 24px;
+            color: #FFF;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .journal-header {
+            padding: 140px 5% 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 60px;
+            background: linear-gradient(180deg, var(--color-charcoal), var(--color-black));
+        }
+
+        .journal-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--color-neon-green);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 16px;
+        }
+
+        .journal-title {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(60px, 8vw, 100px);
+            margin: 0;
+            color: var(--color-neon-green);
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        .journal-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--color-silver);
+            margin-top: 16px;
+        }
+
+        .journal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 0 5% 120px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-neon-green);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .blog-card__image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-card:hover .blog-card__image {
+            transform: scale(1.03);
+        }
+
+        .blog-card__content {
+            padding: 0 24px 24px;
+        }
+
+        .blog-card__category {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-electric-blue);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .blog-card__title {
+            font-family: 'Teko', sans-serif;
+            font-size: 28px;
+            margin: 0;
+            color: #FFF;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .blog-card__excerpt {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--color-silver);
+            line-height: 1.6;
+            margin-top: 8px;
+        }
+
+        .blog-card__link {
+            display: inline-block;
+            margin-top: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--color-silver);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .blog-card:hover .blog-card__link {
+            color: var(--color-neon-green);
+        }
+
+        @media (max-width: 1024px) {
+            .journal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .journal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journal-header {
+                padding: 100px 5% 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <a href="index.html" class="logo">MOCKERS 🍹</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="collections.html" class="nav-link">Collections</a>
+            <a href="blog.html" class="nav-link active">Journal</a>
+        </div>
+        <button class="nav-cart">CART (0)</button>
+    </nav>
+
+    <header class="journal-header">
+        <div class="journal-label">// BLOG_FEED</div>
+        <h1 class="journal-title">TRANSMISSION LOG</h1>
+        <p class="journal-subtitle">Stories, recipes, and the science behind our crafted mocktails.</p>
+    </header>
+
+    <div class="journal-grid">
+        <a href="article.html?slug=science-of-flavor" class="blog-card">
+            <div class="blog-card__image">🔬</div>
+            <div class="blog-card__content">
+                <span class="blog-card__category">Research</span>
+                <h2 class="blog-card__title">The Science of Flavor Balance</h2>
+                <p class="blog-card__excerpt">How we engineer the perfect sweet-sour-bitter ratio in every glass without
+                    a drop of alcohol.</p>
+                <span class="blog-card__link">Read Data &rarr;</span>
+            </div>
+        </a>
+
+        <a href="article.html?slug=mocktail-revolution" class="blog-card">
+            <div class="blog-card__image">🍹</div>
+            <div class="blog-card__content">
+                <span class="blog-card__category">Culture</span>
+                <h2 class="blog-card__title">The Mocktail Revolution</h2>
+                <p class="blog-card__excerpt">Why Gen Z is choosing craft mocktails over cocktails — and why the
+                    industry is paying attention.</p>
+                <span class="blog-card__link">Read Data &rarr;</span>
+            </div>
+        </a>
+
+        <a href="article.html?slug=behind-abyssal-crush" class="blog-card">
+            <div class="blog-card__image">🍉</div>
+            <div class="blog-card__content">
+                <span class="blog-card__category">Behind The Mix</span>
+                <h2 class="blog-card__title">Creating Abyssal Crush</h2>
+                <p class="blog-card__excerpt">The 47 iterations it took to perfect our signature deep watermelon & mint
+                    blend.</p>
+                <span class="blog-card__link">Read Data &rarr;</span>
+            </div>
+        </a>
+    </div>
+
+    <footer class="big-footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h4>// NAVIGATION</h4><a href="index.html">Home</a><a href="index.html#products">Menu</a><a
+                    href="collections.html">Collections</a>
+            </div>
+            <div class="footer-col">
+                <h4>// SOCIAL</h4><a href="#">Instagram</a><a href="#">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-brand-title">MOCKERS</div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MOCKERS. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

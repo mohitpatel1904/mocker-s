@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKERS | Product Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Inter:wght@400;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/hero-glitch.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        .nav-container {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Teko', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #FFF;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #FFF;
+        }
+
+        .nav-cart {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 24px;
+            color: #FFF;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+        }
+
+        .product-detail__media {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-detail__media::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(204, 255, 0, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .product-detail__img {
+            max-width: 80%;
+            max-height: 70vh;
+            object-fit: contain;
+            filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.5));
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-detail__info {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-detail__label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--color-neon-green);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 16px;
+        }
+
+        .product-detail__title {
+            font-family: 'Teko', sans-serif;
+            font-size: 72px;
+            color: #FFF;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin: 0 0 8px;
+        }
+
+        .product-detail__flavor {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--color-silver);
+            margin-bottom: 32px;
+            letter-spacing: 0.05em;
+        }
+
+        .product-detail__desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .product-detail__price {
+            font-family: 'Teko', sans-serif;
+            font-size: 56px;
+            color: #FFF;
+            margin-bottom: 32px;
+            line-height: 1;
+        }
+
+        .product-detail__price span {
+            font-size: 20px;
+            color: var(--color-silver);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .product-detail__actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .ingredients {
+            padding: 80px 5%;
+            background: var(--color-charcoal);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .ingredients__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 40px auto 0;
+        }
+
+        .ingredient-item {
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .ingredient-item__icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .ingredient-item__name {
+            font-family: 'Teko', sans-serif;
+            font-size: 22px;
+            color: #FFF;
+            text-transform: uppercase;
+        }
+
+        .ingredient-item__detail {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: var(--color-silver);
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .product-detail__info {
+                padding: 40px 20px;
+            }
+
+            .product-detail__title {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <a href="index.html" class="logo">MOCKERS 🍹</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="collections.html" class="nav-link">Collections</a>
+            <a href="blog.html" class="nav-link">Journal</a>
+        </div>
+        <button class="nav-cart">CART (0)</button>
+    </nav>
+
+    <section class="product-detail" id="productSection">
+        <div class="product-detail__media">
+            <img id="productImage" src="img/Whisk_040cd1dfd40c079a4cf4c0bba9657798dr.jpeg" class="product-detail__img"
+                alt="Product">
+        </div>
+        <div class="product-detail__info">
+            <div class="product-detail__label" id="productLabel">// MIX 01</div>
+            <h1 class="product-detail__title" id="productTitle">ABYSSAL CRUSH</h1>
+            <p class="product-detail__flavor" id="productFlavor">Deep Watermelon & Mint</p>
+            <p class="product-detail__desc" id="productDesc">
+                A deep, refreshing watermelon mocktail with a cool mint undertone.
+                Crafted with fresh watermelon juice, muddled mint leaves, a hint of lime,
+                and sparkling water for that perfect effervescence.
+            </p>
+            <div class="product-detail__price">₹70 <span>/ Glass</span></div>
+            <div class="product-detail__actions">
+                <button class="btn-primary">ADD TO CART</button>
+                <a href="index.html#products" class="btn-secondary">BACK TO MENU</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="ingredients">
+        <div class="container">
+            <div class="section-label">// INGREDIENTS</div>
+            <h2 class="section-headline" id="ingredientsTitle">WHAT'S INSIDE</h2>
+        </div>
+        <div class="ingredients__grid" id="ingredientsGrid">
+            <div class="ingredient-item">
+                <div class="ingredient-item__icon">🍉</div>
+                <div class="ingredient-item__name">Fresh Watermelon</div>
+                <div class="ingredient-item__detail">Cold-pressed juice</div>
+            </div>
+            <div class="ingredient-item">
+                <div class="ingredient-item__icon">🌿</div>
+                <div class="ingredient-item__name">Mint Leaves</div>
+                <div class="ingredient-item__detail">Hand-muddled</div>
+            </div>
+            <div class="ingredient-item">
+                <div class="ingredient-item__icon">🍋</div>
+                <div class="ingredient-item__name">Lime</div>
+                <div class="ingredient-item__detail">Fresh squeezed</div>
+            </div>
+            <div class="ingredient-item">
+                <div class="ingredient-item__icon">💧</div>
+                <div class="ingredient-item__name">Sparkling Water</div>
+                <div class="ingredient-item__detail">Premium carbonation</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="big-footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h4>// NAVIGATION</h4><a href="index.html">Home</a><a href="index.html#products">Menu</a><a
+                    href="collections.html">Collections</a>
+            </div>
+            <div class="footer-col">
+                <h4>// SOCIAL</h4><a href="#">Instagram</a><a href="#">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-brand-title">MOCKERS</div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MOCKERS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic product loading based on URL params
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get('id');
+
+        const products = {
+            'abyssal-crush': {
+                label: '// MIX 01', title: 'ABYSSAL CRUSH', flavor: 'Deep Watermelon & Mint',
+                desc: 'A deep, refreshing watermelon mocktail with a cool mint undertone. Crafted with fresh watermelon juice, muddled mint leaves, a hint of lime, and sparkling water for that perfect effervescence.',
+                img: 'img/Whisk_040cd1dfd40c079a4cf4c0bba9657798dr.jpeg',
+                ingredients: [
+                    { icon: '🍉', name: 'Fresh Watermelon', detail: 'Cold-pressed juice' },
+                    { icon: '🌿', name: 'Mint Leaves', detail: 'Hand-muddled' },
+                    { icon: '🍋', name: 'Lime', detail: 'Fresh squeezed' },
+                    { icon: '💧', name: 'Sparkling Water', detail: 'Premium carbonation' }
+                ]
+            },
+            'blackberry-smash': {
+                label: '// MIX 02', title: 'BLACKBERRY ROSEMARY SMASH', flavor: 'Blackberry & Rosemary',
+                desc: 'Dark berry richness meets aromatic rosemary. A sophisticated blend of muddled blackberries, fresh rosemary sprigs, honey syrup, and a splash of tonic for an unforgettable sip.',
+                img: 'img/Whisk_092ea043eab32e5b05b4d773ef18a92fdr.jpeg',
+                ingredients: [
+                    { icon: '🫐', name: 'Blackberries', detail: 'Freshly muddled' },
+                    { icon: '🌿', name: 'Rosemary', detail: 'Aromatic sprigs' },
+                    { icon: '🍯', name: 'Honey Syrup', detail: 'Natural sweetener' },
+                    { icon: '🥤', name: 'Tonic Water', detail: 'Premium botanical' }
+                ]
+            },
+            'spiger-mule': {
+                label: '// MIX 03', title: 'SPIGER MULE', flavor: 'Ginger & Lime Kick',
+                desc: 'Spiced ginger meets tangy lime in this electrifying take on the classic mule. Freshly grated ginger, lime juice, ginger beer, and a dash of bitters create a drink that bites back.',
+                img: 'img/Whisk_b78ce6c83bb8399a87d4c8a8c4000db4dr.jpeg',
+                ingredients: [
+                    { icon: '🫚', name: 'Fresh Ginger', detail: 'Grated & pressed' },
+                    { icon: '🍋', name: 'Lime Juice', detail: 'Fresh squeezed' },
+                    { icon: '🍺', name: 'Ginger Beer', detail: 'Craft brewed, 0% ABV' },
+                    { icon: '🌶️', name: 'Aromatic Bitters', detail: 'Non-alcoholic' }
+                ]
+            }
+        };
+
+        if (productId && products[productId]) {
+            const p = products[productId];
+            document.getElementById('productLabel').textContent = p.label;
+            document.getElementById('productTitle').textContent = p.title;
+            document.getElementById('productFlavor').textContent = p.flavor;
+            document.getElementById('productDesc').textContent = p.desc;
+            document.getElementById('productImage').src = p.img;
+            document.title = `MOCKERS | ${p.title}`;
+
+            const grid = document.getElementById('ingredientsGrid');
+            grid.innerHTML = p.ingredients.map(i => `
+                <div class="ingredient-item">
+                    <div class="ingredient-item__icon">${i.icon}</div>
+                    <div class="ingredient-item__name">${i.name}</div>
+                    <div class="ingredient-item__detail">${i.detail}</div>
+                </div>
+            `).join('');
+        }
+    </script>
+
+</body>
+
+</html>

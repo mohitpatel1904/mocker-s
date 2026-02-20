@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCKERS | All Drinks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600&family=Inter:wght@400;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/hero-glitch.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        .nav-container {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Teko', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #FFF;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #FFF;
+        }
+
+        .nav-link.active {
+            color: var(--color-neon-green);
+        }
+
+        .nav-cart {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 24px;
+            color: #FFF;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .page-header {
+            padding: 140px 5% 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 60px;
+            background: linear-gradient(180deg, var(--color-charcoal), var(--color-black));
+        }
+
+        .page-header__label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--color-neon-green);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 16px;
+        }
+
+        .page-header__title {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(60px, 8vw, 100px);
+            margin: 0;
+            color: #FFF;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        .page-header__subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--color-silver);
+            margin-top: 16px;
+            max-width: 500px;
+        }
+
+        .collection-grid {
+            padding: 0 5% 120px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-header {
+                padding: 100px 5% 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav-container">
+        <a href="index.html" class="logo">MOCKERS 🍹</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="collections.html" class="nav-link active">Collections</a>
+            <a href="blog.html" class="nav-link">Journal</a>
+        </div>
+        <button class="nav-cart">CART (0)</button>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header__label">// FULL_CATALOG</div>
+        <h1 class="page-header__title">ALL DRINKS</h1>
+        <p class="page-header__subtitle">Explore our complete range of handcrafted premium mocktails. Zero alcohol,
+            maximum flavor.</p>
+    </header>
+
+    <div class="collection-grid">
+        <div class="products-grid">
+
+            <div class="product-card" onclick="window.location.href='product.html?id=abyssal-crush'">
+                <div class="product-card__image-wrapper">
+                    <span class="product-card__badge">Mix 01</span>
+                    <img src="img/Whisk_040cd1dfd40c079a4cf4c0bba9657798dr.jpeg" class="product-card__image"
+                        alt="Abyssal Crush">
+                </div>
+                <div class="product-card__content">
+                    <span class="product-card__flavor">Deep Watermelon & Mint</span>
+                    <div class="product-card__title">Abyssal Crush</div>
+                    <div class="product-card__price-row">
+                        <div class="product-card__price">₹70</div>
+                        <button class="product-card__add" onclick="event.stopPropagation();">Add +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" onclick="window.location.href='product.html?id=blackberry-smash'">
+                <div class="product-card__image-wrapper">
+                    <span class="product-card__badge">Mix 02</span>
+                    <img src="img/Whisk_092ea043eab32e5b05b4d773ef18a92fdr.jpeg" class="product-card__image"
+                        alt="Blackberry Rosemary Smash">
+                </div>
+                <div class="product-card__content">
+                    <span class="product-card__flavor">Blackberry & Rosemary</span>
+                    <div class="product-card__title">Blackberry Rosemary Smash</div>
+                    <div class="product-card__price-row">
+                        <div class="product-card__price">₹70</div>
+                        <button class="product-card__add" onclick="event.stopPropagation();">Add +</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" onclick="window.location.href='product.html?id=spiger-mule'">
+                <div class="product-card__image-wrapper">
+                    <span class="product-card__badge">Mix 03</span>
+                    <img src="img/Whisk_b78ce6c83bb8399a87d4c8a8c4000db4dr.jpeg" class="product-card__image"
+                        alt="Spiger Mule">
+                </div>
+                <div class="product-card__content">
+                    <span class="product-card__flavor">Ginger & Lime Kick</span>
+                    <div class="product-card__title">Spiger Mule</div>
+                    <div class="product-card__price-row">
+                        <div class="product-card__price">₹70</div>
+                        <button class="product-card__add" onclick="event.stopPropagation();">Add +</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="big-footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h4>// NAVIGATION</h4><a href="index.html">Home</a><a href="index.html#products">Menu</a><a
+                    href="blog.html">Journal</a>
+            </div>
+            <div class="footer-col">
+                <h4>// SOCIAL</h4><a href="#">Instagram</a><a href="#">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-brand-title">MOCKERS</div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MOCKERS. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
